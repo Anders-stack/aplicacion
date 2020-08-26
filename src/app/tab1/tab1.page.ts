@@ -9,31 +9,28 @@ export class Tab1Page {
 
   dado1 = 0;
   dado2 = 0;
-  suma = 0;
-  eleccion = '';
+  dado3 = 0;
+  dado4 = 0;
+  
   resultado: string;
+  resultado1: string;
 
   constructor() {}
-  calcularSuma() {
 
-    this.dado1 = Math.floor(Math.random() * 6) + 1;
-    this.dado2 = Math.floor(Math.random() * 6) + 1;
+  calcularIgual() {
 
-    this.suma = this.dado1 + this.dado2;
-    if (this.suma >= 2 && this.suma <= 6) {
-      this.resultado = 'menor';
-    }
-    else if (this.suma > 7) {
-      this.resultado = 'mayor';
-    }
-    else if (this.suma === 7) {
-      this.resultado = 'casa';
-    }
-    // En php: $this->suma = $this->dado1 + $this->dado2
-  }
+    this.dado1 = Math.floor(Math.random() * 3) + 1;
+    this.dado2 = Math.floor(Math.random() * 3) + 1;
+    this.dado3 = Math.floor(Math.random() * 3) + 1;
+    this.dado4 = Math.floor(Math.random() * 3) + 1;
 
-  elegirOpcion(opcion: string) {
-    this.eleccion = opcion;
+    if (this.dado1 == this.dado2 && this.dado3 == this.dado4) {
+      this.resultado = 'gana';
+    }
+    else if (this.dado1 !== this.dado2 && this.dado3 !== this.dado4) {
+      this.resultado1 = 'perder';
+    }
+
   }
 
 }
