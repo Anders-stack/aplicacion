@@ -30,7 +30,6 @@
       <ion-label>Dado 2: </ion-label>
       <ion-input [(ngModel)]="dado2" type="number" value="0"></ion-input>
     </ion-item>
-    
 
     <ion-item>
       <ion-label>Dado 3: </ion-label>
@@ -48,7 +47,7 @@
 
     
     <div class="perder" *ngIf="resultado.length  !== gana">
-      Usted no tiene mucha suerte!!! ;( ;(
+      Usted no tiene mucha suerte!!! ;(
     </div>
 
     <div class="ganar" *ngIf="resultado.length  === gana">
