@@ -7,30 +7,52 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  dado1 = 0;
-  dado2 = 0;
-  dado3 = 0;
-  dado4 = 0;
-  
-  resultado: string;
-  resultado1: string;
+  dato: string;
+  v: Array<string> = new Array<string>(5);
+  entrada: number;
+  salida: number;
+  mensaje = '';
 
-  constructor() {}
-
-  calcularIgual() {
-
-    this.dado1 = Math.floor(Math.random() * 3) + 1;
-    this.dado2 = Math.floor(Math.random() * 3) + 1;
-    this.dado3 = Math.floor(Math.random() * 3) + 1;
-    this.dado4 = Math.floor(Math.random() * 3) + 1;
-
-    if (this.dado1 == this.dado2 && this.dado3 == this.dado4) {
-      this.resultado = 'gana';
-    }
-    else if (this.dado1 !== this.dado2 && this.dado3 !== this.dado4) {
-      this.resultado1 = 'perder';
-    }
-
+  constructor() {
+    this.entrada = this.salida = -1;
   }
 
+  vacia(): boolean {
+    return (this.entrada === -1 && this.salida === -1);
+  }
+  llena(): boolean {
+    return ((this.entrada + 1) % 5 === this.salida);
+  }
+  insertar() {
+    if (this.llena()) {
+      this.mensaje = 'Cola llena';
+      return;
+    }
+    else if (this.vacia()) {
+      this.entrada = this.salida = 0;
+    } else {
+      this.entrada = (this.entrada + 1) % 5;
+    }
+    this.v[this.entrada] = this.dato;
+    this.dato = '';
+  }
+  extraer() {
+    if (this.vacia()){
+      console.log('Cola vacia');
+      this.mensaje = 'Cola vacia';
+      return;
+    }
+    else{
+    this.mensaje = 'Valor extraido' + this.v[this.salida];
+    this.v[this.salida] = ' ';
+        if((this.entrada === this.salida) {
+          this.entrada = this.salida = -1;
+      }
+      else{
+        (this.salida +1) % 5;
+      }
+    }
+  }
 }
+
+

@@ -1,62 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Juegos
+      Colas circulares
     </ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Juegos</ion-title>
+      <ion-title size="large">Colas circulares</ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>La regla es muy simple, si usted obtiene todos los dados iguales con el mismo numero:Es el ganador :)</ion-card-subtitle>
-      <ion-card-title>EL SUERTUDITO</ion-card-title>
+      <ion-card-subtitle>Funcionamiento básico</ion-card-subtitle>
+      <ion-card-title>Colas</ion-card-title>
     </ion-card-header>
 
-  <ion-card-content>
+    <ion-card-content>
 
-    <ion-item>
-      <ion-label>Dado 1: </ion-label>
-      <ion-input [(ngModel)]="dado1" type="number" value="0"></ion-input>
-    </ion-item>
 
-    
-    <ion-item>
-      <ion-label>Dado 2: </ion-label>
-      <ion-input [(ngModel)]="dado2" type="number" value="0"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label>Dato: </ion-label>
+        <ion-input [(ngModel)]="dato" type="text"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label>Dado 3: </ion-label>
-      <ion-input [(ngModel)]="dado3" type="number" value="0"></ion-input>
-    </ion-item>
-    
-  
-    <ion-item>
-      <ion-label>Dado 4: </ion-label>
-      <ion-input [(ngModel)]="dado4" type="number" value="0"></ion-input>
-    </ion-item>
-    
+      <ion-button color="primary" (click)="insertar()">Insertar</ion-button>
 
-    <ion-button color="primary" (click)="calcularIgual()" expand="block" fill="outline">Jugar</ion-button>
+      <ion-button color="warning" (click)="extraer()">Extraer</ion-button>
 
-    
-    <div class="perder" *ngIf="resultado.length  !== gana">
-      Usted no tiene mucha suerte!!! ;(
-    </div>
+      <h2 class="ion-text-center">{{ mensaje }}</h2>
 
-    <div class="ganar" *ngIf="resultado.length  === gana">
-      Usted tiene mucha suerte GANO!!!!! ;( 
-    </div>
+      <ul>
+        <li *ngFor="let elemento of v">{{ elemento }}</li>
+      </ul>
 
-    
-
-  </ion-card-content>
+    </ion-card-content>
   </ion-card>
 
 </ion-content>
