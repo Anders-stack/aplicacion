@@ -11,7 +11,7 @@ export class Tab1Page {
   v: Array<string> = new Array<string>(5);
   entrada: number;
   salida: number;
-  mensaje = '';
+  mensaje = ' ';
 
   constructor() {
     this.entrada = this.salida = -1;
@@ -34,7 +34,7 @@ export class Tab1Page {
       this.entrada = (this.entrada + 1) % 5;
     }
     this.v[this.entrada] = this.dato;
-    this.dato = '';
+    this.dato = ' ';
   }
   extraer() {
     if (this.vacia()){
@@ -42,17 +42,17 @@ export class Tab1Page {
       this.mensaje = 'Cola vacia';
       return;
     }
-    else{
     this.mensaje = 'Valor extraido' + this.v[this.salida];
-    this.v[this.salida] = ' ';
-        if((this.entrada === this.salida) {
-          this.entrada = this.salida = -1;
-      }
-      else{
-        (this.salida +1) % 5;
+    this.v[this.salida]= '';
+    if(this.salida === this.entrada) {
+      this.salida = this.entrada = -1; 
+    }
+    else{
+      this.salida = (this.salida + 1) % 5;
       }
     }
-  }
+  
+
 }
 
 
